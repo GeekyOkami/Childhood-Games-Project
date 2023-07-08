@@ -1,0 +1,142 @@
+/*rgba(255,222,21,255)-> Yellow
+rgba(40,218,0,255)-> green
+rgba(235,22,31,255)-> red
+rgba(88,204,255,255)->blue*/
+*{
+    box-sizing: border-box;
+}
+.main-container{
+    height: 100%;
+    width: 100%;
+
+    background-size: inherit;
+}
+h1{
+    text-align: center;
+    font-size: 60px;
+    font-family: cursive;
+    background: -webkit-linear-gradient(rgb(188, 12, 241), rgb(212, 4, 4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.ludo-container{
+    width: 450px;
+    margin: 20px auto;
+}
+
+.ludo-container .ludo{
+    height: 450px;
+    width: 100%;
+    background: no-repeat;
+    background-image: url("./ludo-bg-img.jpg");
+    background-size: contain;
+    position: relative;
+}
+
+body{
+    background-image: url("./bg-image.png");
+}
+
+.player-pieces{
+    height: 100%;
+    width: 100%;
+}
+
+.player-piece{
+    width: 3%;
+    height: 3%;
+    border: 2px solid ;
+    border-radius: 50px;
+    position: absolute;
+    transform: translate(50%,50%);
+    transition: all .2s;
+    z-index: 1;
+}
+
+.player-piece.highlight{
+    cursor: pointer;
+    border: 2px dashed;
+    animation: spin 1s infinite linear;
+}
+@keyframes spin {
+    0%{
+        transform: translate(50%,50%) rotate(0deg);
+    }
+    50%{
+        transform: translate(50%,50%) rotate(180deg) scale(1.4);
+    }
+    100%{
+        transform: translate(50%,50%) rotate(360deg);
+    }
+}
+
+[player-id="P1"].player-piece{
+    background-color:rgba(88,204,255,255) ;
+    /* top: 15%;
+    left: 50%; */
+}
+
+[player-id="P2"].player-piece{
+    background-color:rgba(40,218,0,255) ;
+}
+
+.player-base{
+    width: 40%;
+    height: 40%;
+    border: 30px solid;
+    position: absolute;
+}
+
+.player-bases [player-id="P1"].player-base{
+    bottom: 0;
+    left: 0;
+    border-color: rgba(18,149,231,255);
+}
+
+.player-bases [player-id="P2"].player-base{
+    top: 0;
+    right: 0;
+    border-color: rgba(4,150,69,255);
+}
+
+.player-base.highlight{
+    animation: border-blink .7s  infinite ease-in-out;
+}
+@keyframes border-blink {
+    50%{
+        border-color: rgba(255,255,255,0.8);
+    }
+}
+
+.btn{
+    border: 1px solid black;
+    padding: 8px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:disabled{
+    opacity: 0.5;
+}
+
+
+
+.btn-dice{
+    background-color: rgb(40, 148, 13);
+    color: white;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.dice-value{
+    font-size: 24px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+.active-player{
+    font-family: cursive;
+}
